@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <title>Exercício 03</title>
+    <style>
+      .card {
+        background-image: url(imgs/card.jpg);
+        width: 500px;
+        height: 275px;
+        display: none;
+        font-family: 'Quicksand';
+        font-weight: bold;
+        text-align: right;
+      }
+      .showName {
+        padding-top: 10px;
+        font-size: 30px;
+        padding-right: 20px;
+      }
+      .showTel{
+        font-size: 20px;
+        padding-right: 20px;
+      }
+      .showAddress {
+        font-size: 20px;
+        padding-right: 20px;
+        margin-top: -10px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Vamos criar um gerador de cartão de visita. O usuário deve preencher um formulário
+      com os campos nome, telefone e endereço. Ao enviar o formulário deve-se apresentar uma div formatada
+      como um cartão de visita apresentando as informações preenchidas previamente.</p>
+    <ul>
+      <li>Nome:<input class= "name" type="text"></li>
+      <li>Telefone:<input class= "tel" type="text"></li>
+      <li>Endereço:<input class= "address" type="text"></li>
+    </ul>
+    <button class="create" type="button">Criar</button>
+    <div class="card">
+      <p class="showName"></p>
+      <p class="showTel"></p>
+      <p class="showAddress"></p>
+    </div></p>
+    <script>
+      document.querySelector(".create").addEventListener("click", criarCartao);
+      function criarCartao(){
+        document.querySelector(".card").style.display = "block";
+        document.querySelector(".showName").innerHTML = document.querySelector(".name").value;
+        document.querySelector(".showTel").innerHTML = document.querySelector(".tel").value;
+        document.querySelector(".showAddress").innerHTML = document.querySelector(".address").value;
+      }
+    </script>
+  </body>
+</html>

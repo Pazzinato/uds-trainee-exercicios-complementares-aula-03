@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <title>Exercício 01</title>
+    <style>
+
+    </style>
+  </head>
+  <body>
+    <p>Precisamos criar um gerador de declarações. O usuário preenche um formulário e
+    devolvemos a ele uma declaração preenchida. Para isso você deve adicionar 4 campos
+    de texto ( nome completo, rg, cpf e cidade ) em um arquivo html e estiliza-los conforme
+    achar necessário. Sua aplicação deve pegar os dados informados neste campo e devolver o
+    seguinte texto como conteúdo da página: "Eu, {nome-completo}, portador do rg {rg} e
+    do cpf {cpf}, declaro estar participando do trainee da uds."; após este texto apresentar a
+    cidade e a data atual escrita por extenso.</p>
+    <ul>
+      <li>Nome:<input class= "name" type="text"></li>
+      <li>RG:<input class= "rg" type="text"></li>
+      <li>CPF:<input class= "cpf" type="text"></li>
+      <li>Cidade:<input class= "city" type="text"></li>
+    </ul>
+    <button class="send" type="button">Enviar</button>
+    <p class="showText"></p>
+    <p class="showDateCity"></p>
+  </body>
+  <script>
+    var dia  = new Date().getDate();
+    var mes = new Date().getMonth();
+    var ano = new Date().getFullYear();
+    defineMes(mes);
+    function defineMes(mes){
+      if (mes == 0){
+        mes = "Janeiro";
+      }
+      else if (mes == 1) {
+        mes = "Fevereiro";
+      }
+      else if (mes == 2) {
+        mes = "Março";
+      }
+      else if (mes == 3) {
+        mes = "Abril";
+      }
+      else if (mes == 4) {
+        mes = "Maio";
+      }
+      else if (mes == 5) {
+        mes = "Junho";
+      }
+      else if (mes == 6) {
+        mes = "Julho";
+      }
+      else if (mes == 7) {
+        mes = "Agosto";
+      }
+      else if (mes == 8) {
+        mes = "Setembro";
+      }
+      else if (mes == 9) {
+        mes = "Outubro";
+      }
+      else if (mes == 10) {
+        mes = "Novembro";
+      }
+      else if (mes == 11) {
+        mes = "Dezembro";
+      }
+      return mes;
+    }
+    document.querySelector(".send").addEventListener("click", mostraTexto);
+    function mostraTexto(){
+      document.querySelector(".showText").innerHTML = "Eu, " + document.querySelector(".name").value + ", portador do RG " + document.querySelector(".rg").value + " e do CPF "  + document.querySelector(".cpf").value + ", declaro estar participando do trainee da uds.";
+      document.querySelector(".showDateCity").innerHTML = document.querySelector(".city").value + ", " + dia + " de " + defineMes(mes) + " de " + ano + ".";
+    }
+  </script>
+</html>
