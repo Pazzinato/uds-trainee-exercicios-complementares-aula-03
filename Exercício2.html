@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Exercício 02</title>
+    <style>
+    .circles {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: center;
+    }
+    .paint {
+      position: absolute;
+      right: 50%;
+      transform: translate(50%);
+    }
+    .c {
+      border-radius: 100%;
+      background-color: red;
+      height: 70px;
+      width: 70px;
+      margin: 10px;
+      text-align: center;
+    }
+    </style>
+  </head>
+  <body>
+    <p>Crie um arquivo html com 10 divs e 1 botão. As divs devem ser circulos vermelhos
+      posicionadas lado a lado via flex-box. Ao clicar no botão o sistema deve calcular
+      um número aleatório de 1 a 10 e pintar a div correspondente de azul.
+      Ao clicar novamente, o sistema deve voltar todas as divs para vermelho e realizar
+      a operação anterior novamente.</p>
+      <div class="circles">
+        <div class="c c1">
+        </div>
+        <div class="c c2">
+        </div>
+        <div class="c c3">
+        </div>
+        <div class="c c4">
+        </div>
+        <div class="c c5">
+        </div>
+        <div class="c c6">
+        </div>
+        <div class="c c7">
+        </div>
+        <div class="c c8">
+        </div>
+        <div class="c c9">
+        </div>
+        <div class="c c10">
+        </div>
+      </div>
+      <button class="paint" type="button">Colorir Aleatório!</button>
+      <script>
+        document.querySelector(".paint").addEventListener("click", colorirAleatorio);
+        function colorirAleatorio(){
+          if(document.querySelector(".paint").innerHTML == "Colorir Aleatório!"){
+            var numeroAleatorio = Math.floor(Math.random() * 10) + 1;
+            var circulo = ".c" + numeroAleatorio;
+            document.querySelector(".paint").innerHTML = "Resetar!";
+            document.querySelector(circulo).style.background = "blue";
+          }
+          else{
+            descolorir = 1;
+            while (descolorir <= 10) {
+              var circulo = ".c" + descolorir;
+              document.querySelector(circulo).style.background = "red";
+              descolorir++;
+            }
+            document.querySelector(".paint").innerHTML = "Colorir Aleatório!";
+          }
+        }
+      </script>
+  </body>
+</html>
